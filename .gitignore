@@ -1,0 +1,21 @@
+.hgignore
+.hg
+__pycache__
+*.py[cod]
+build
+dist
+*.egg-info/
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+## Directory-based project format:
+.idea/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ss]cripts
+pyvenv.cfg
+venv
+.venv
