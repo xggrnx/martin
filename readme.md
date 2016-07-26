@@ -1,2 +1,2 @@
-Flask, Flask-SqlAlchemy, Flask-Admin bootstrap
+Flask, Flask-SqlAlchemy, Flask-Admin boilerplate
 
