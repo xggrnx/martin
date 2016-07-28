@@ -5,3 +5,4 @@ flask-iniconfig
 flask-admin
 celery
 bcrypt
+ujson

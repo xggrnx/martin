@@ -1,3 +1,7 @@
+import ujson
+from functools import wraps
+from flask import request, render_template
+
 def render_json():
     def decorator(f):
         @wraps(f)
@@ -28,4 +32,3 @@ def render_html(template=None):
             return render_template(template_name, **ctx)
         return decorated_function
     return decorator
-

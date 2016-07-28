@@ -1,11 +1,12 @@
 import os
 
 from flask import Flask
-from flask.ext.iniconfig import INIConfig
+from flask_iniconfig import INIConfig
 from flask_security import SQLAlchemyUserDatastore
 from flask_admin.contrib.sqla import ModelView
 from martin.models import db, security, admin
-from martin.models.users import Role, User
+from martin.models.users import Role, Users
+from martin.controllers.index import IndexBlueprint
 
 
 def make_app(*args, **kwargs):
@@ -18,8 +19,10 @@ def make_app(*args, **kwargs):
     app.config.from_inifile_sections(app.config['CFG_PATH'],
                                      ['app:flask'])
     db.init_app(app)
-    user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+    user_datastore = SQLAlchemyUserDatastore(db, Users, Role)
     security.init_app(app, user_datastore)
     admin.init_app(app)
-    admin.add_view(ModelView(User, db.session))
+    admin.add_view(ModelView(Users, db.session))
+
+    app.register_blueprint(IndexBlueprint)
     return app
