@@ -10,7 +10,10 @@ from martin.controllers.index import IndexBlueprint
 
 
 def make_app(*args, **kwargs):
-    app = Flask(__name__)
+    app = Flask(__name__,
+                template_folder='templates',
+                static_folder='static',
+                static_url_path='')
     INIConfig(app)
     app.config['APP_PATH'] = os.path.dirname(
         os.path.abspath(__file__))
